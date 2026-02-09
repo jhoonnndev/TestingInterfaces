@@ -8,11 +8,6 @@ import static org.mockito.Mockito.*;
 
 class MasterMindUITest {
 
-    @BeforeEach
-    void setup() {
-        System.setProperty("java.awt.headless", "true");
-    }
-
     @Test
     void testFlujoCompletoDeJuego() {
         Color[] col = {Color.RED, Color.BLUE};
