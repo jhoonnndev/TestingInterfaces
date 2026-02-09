@@ -16,6 +16,7 @@ public class MasterMindUI {
     // Game logic
     private final MasterMindLogic LOGIC;
     private JButton checkBtn;
+    private java.util.List<JButton> colorButtons = new java.util.ArrayList<>();
 
     // Stores each row of guessed colors (4 circles per row)
     private ArrayList<Circle[]> guessRows = new ArrayList<>();
@@ -26,7 +27,7 @@ public class MasterMindUI {
     private int currentRow = 0;
 
     // Circle class for rounded objects
-    private static class Circle extends JButton {
+    public static class Circle extends JButton {
         private Color color;
         private final int diameter;
 
@@ -216,6 +217,7 @@ public class MasterMindUI {
 
         for (int i = 0; i < colors.length; i++) {
             JButton btn = createStyledButton(labels[i], colors[i], BUTTON_SIZE);
+            colorButtons.add(btn);
             final Color chosen = colors[i];
             // Change the color of selected label
             btn.addActionListener(e -> {
@@ -256,8 +258,16 @@ public class MasterMindUI {
         frame.setVisible(true);
     }
 
-    
+
     public JButton getCheckButton() {
         return this.checkBtn;
+    }
+
+    public java.util.List<JButton> getColorButtons() {
+        return colorButtons;
+    }
+
+    public java.util.ArrayList<Circle[]> getGuessRows() {
+        return guessRows;
     }
 }
